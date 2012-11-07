@@ -8,8 +8,12 @@
 # Created:     26/10/2012
 # Copyright:   (c) JBHobley 2012
 # Licence:     <your licence>
+#
+#   v1.2 - Added setCMQuery, setCMServer, getText methods
+#
 #-------------------------------------------------------------------------------
 #!/usr/bin/env python
+
 
 
 def main():
@@ -42,12 +46,23 @@ class callmanager:
         else:
             return("The object has not yet been populated")
 
+    def getText(self):
+        return self.__str__()
+
+    def getList(self):
+        return self.CMList
+
     def setCredentials(self,password,username='ccmadministrator'):
         import urllib2
         # Now create a PasswordMgr object to pass the authentication to the server
         self.pwdb = urllib2.HTTPPasswordMgrWithDefaultRealm()
         self.pwdb.add_password(None, self.CMServer,username,password)
 
+    def setCMQuery(self,query):
+        self.CMquery=query
+
+    def setCMServer(self,server):
+        self.CMServer=server
 
     def getCMData(self):
         '''Interrogate callmanager (or a file://) and populate self.rawXML'''

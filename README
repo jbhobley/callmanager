@@ -1,3 +1,5 @@
 callmanager module
 
 Python module to help extracting data from Cisco Callmanager and Unity Voicemail servers
+
+v1.2 - Added setCMQuery, setCMServer, getText methods         (6-Nov-12 JH)
